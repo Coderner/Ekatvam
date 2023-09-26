@@ -4,10 +4,10 @@ import Signup from "./Signup";
 
 const Home = () =>{
     return(
-        <>
+        <div className="flex">
            <Login/>
            <Signup/>
-        </>
+        </div>
     )
 };
 
