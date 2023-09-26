@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormik } from 'formik';
+import LogImage from "../images/login.avif";
 
 const Login = () =>{
 
@@ -33,7 +34,7 @@ const Login = () =>{
 
    return(
     <div className='w-1/2 h-screen bg-indigo-200'>
-      <form className="flex flex-col my-40 h-3/5" onSubmit={formik.handleSubmit}>
+      <form className="flex flex-col h-3/5" onSubmit={formik.handleSubmit}>
 
          <h1 className="text-center font-medium text-2xl my-8 text-gray-500"> 
             <span className="text-blue-500">Login</span> Your Account
@@ -74,7 +75,7 @@ const Login = () =>{
          </button>
 
          <p className='text-xs text-center font-medium text-gray-500'>By clicking on Login, I accept the Terms & Conditions.</p>
-
+        
        </form>
      </div>
    )

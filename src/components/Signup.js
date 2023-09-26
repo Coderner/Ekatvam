@@ -47,7 +47,7 @@ const Signup = () =>{
       });
 
     return(
-    <div className="w-1/2 h-screen bg-purple-200">
+    <div className="fixed right-0 w-1/2 h-screen bg-purple-200">
      <form className="flex flex-col my-40 h-3/5" onSubmit={formik.handleSubmit}>
 
         <h1 className="text-center font-medium text-2xl my-8 text-purple-600"> Sign Up</h1>
