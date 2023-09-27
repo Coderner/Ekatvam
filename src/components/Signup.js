@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormik } from 'formik';
+import Swal from 'sweetalert2'
 
 const Signup = () =>{
 
@@ -42,20 +43,25 @@ const Signup = () =>{
         },
         validate,
         onSubmit: values => {
-          alert(JSON.stringify(values, null, 2));
+          Swal.fire({
+            title: 'Account Created Successfully!',
+            text: 'Directed to dashboard.',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          })
         },
       });
 
     return(
-    <div className="fixed right-0 w-1/2 h-screen bg-purple-200">
-     <form className="flex flex-col my-40 h-3/5" onSubmit={formik.handleSubmit}>
+    <div className="w-1/3 h-auto bg-purple-200 shadow-md shadow-fuchsia-400 rounded-2xl">
+     <form className="flex flex-col" onSubmit={formik.handleSubmit}>
 
-        <h1 className="text-center font-medium text-2xl my-8 text-purple-600"> Sign Up</h1>
+        <h1 className = "font-medium text-2xl mt-5 text-center text-blue-600">New User?</h1>
+        <h2 className="font-medium text-xl text-center text-gray-500">Start your journey Now.</h2>
+        <h1 className="text-center font-medium text-2xl my-2 text-blue-500"> Sign Up</h1>
 
-        <div className="flex mx-auto justify-between">
-        <div className="flex flex-col">
             <input
-              className="py-1 px-3 my-2 mr-12 bg-purple-200 border-b-2 border-purple-600"
+              className="py-1 px-3 my-2 mx-auto w-4/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
               id="firstName"
               name="firstName"
               type="text"
@@ -65,12 +71,11 @@ const Signup = () =>{
               value={formik.values.firstName}
            />
            {formik.touched.firstName && formik.errors.firstName ? (
-            <div className='text-xs text-red-600 font-medium'>{formik.errors.firstName}</div>
+            <div className='text-xs text-red-600 font-medium mx-20'>{formik.errors.firstName}</div>
            ) : null}
-         </div>
-         <div className="flex flex-col">
+        
             <input
-              className="py-1 px-3 my-2  bg-purple-200 border-b-2 border-purple-600"
+              className="py-1 px-3 my-2 mx-auto w-4/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
               id="lastName"
               name="lastName"
               type="text"
@@ -80,13 +85,11 @@ const Signup = () =>{
               value={formik.values.lastName}
            />
            {formik.touched.lastName && formik.errors.lastName ? (
-             <div className='text-xs text-red-600 font-medium'>{formik.errors.lastName}</div>
+             <div className='text-xs text-red-600 font-medium mx-20'>{formik.errors.lastName}</div>
            ) : null}
-          </div>
-        </div>
 
          <input
-              className="py-1 px-3 my-2 mx-auto w-4/6  bg-purple-200 border-b-2 border-purple-600"
+              className="py-1 px-3 my-2 mx-auto w-4/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
               id="email"
               name="email"
               type="email"
@@ -96,11 +99,11 @@ const Signup = () =>{
               value={formik.values.email}
          />
          {formik.touched.email && formik.errors.email ? (
-           <div className='text-xs text-red-600 mx-28 font-medium'>{formik.errors.email}</div>
+           <div className='text-xs text-red-600 mx-20 font-medium'>{formik.errors.email}</div>
          ) : null}
 
          <input
-              className="py-1 px-3 my-2 mx-auto w-4/6  bg-purple-200 border-b-2 border-purple-600"
+              className="py-1 px-3 my-2 mx-auto w-4/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
               id="password"
               name="password"
               type="password"
@@ -110,12 +113,12 @@ const Signup = () =>{
               value={formik.values.password}
          />
          {formik.touched.password && formik.errors.password ? (
-           <div className='text-xs text-red-600 mx-28 font-medium'>{formik.errors.password}</div>
+           <div className='text-xs text-red-600 mx-20 font-medium'>{formik.errors.password}</div>
          ) : null}
  
        <button type="submit"
-        className="bg-purple-600 text-white w-2/6 p-2 my-4 mx-auto rounded-md font-semibold hover:bg-purple-700"
-       >
+           className="bg-blue-500 text-white w-3/6 p-2 my-6 mx-auto rounded-2xl font-semibold hover:bg-blue-600"
+           >
          Submit
        </button>
      </form>
