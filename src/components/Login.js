@@ -1,8 +1,11 @@
 import React from "react";
 import { useFormik } from 'formik';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 const Login = () =>{
+
+    const navigate = useNavigate();
 
     const validate = values => {
         const errors = {};
@@ -34,11 +37,12 @@ const Login = () =>{
             icon: 'success',
             confirmButtonText: 'Ok'
           })
+          navigate("/dashboard");
         },
       });
 
    return(
-    <div className='w-1/3 h-auto bg-purple-200 shadow-md shadow-fuchsia-400 rounded-2xl'>
+    <div className='w-2/5 h-auto bg-purple-200 shadow-md shadow-fuchsia-400 rounded-2xl'>
       <form className="flex flex-col" onSubmit={formik.handleSubmit}>
             
              <h1 className="font-medium text-2xl mt-16 mb-2 text-center text-blue-600">Already a User?</h1>

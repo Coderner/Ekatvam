@@ -1,14 +1,18 @@
 import { useFormik } from "formik";
 import CreateImg from "../images/createimg.avif"
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const Create = () =>{
+    const post_url="https://jsonplaceholder.typicode.com/users";
+
     const validate = values => {
         const errors = {};
 
         if(!values.fullName){
             errors.fullName = '*Required';
           } else if(values.fullName.length < 4){
-            errors.fullName = "*UserName must be more than or equal to 4 characters length"
+            errors.fullName = "*Name must be more than or equal to 4 characters length"
           }
       
         if(!values.userName){
@@ -25,8 +29,8 @@ const Create = () =>{
 
         if(!values.phone){
             errors.phone = '*Required';
-          } else if(values.phone.length != 10){
-            errors.userName = "*There must be 10 digits in phone no."
+          } else if(values.phone.length !== 10){
+            errors.phone = "*There must be 10 digits in phone no."
           }
       
         if(!values.address){
@@ -42,28 +46,53 @@ const Create = () =>{
 
     const formik = useFormik({
         initialValues: {
+          fullName:'',
           userName: '',
           email: '',
-          querry: '',
+          phone: '',
+          address: '',
+          website: '',
         },
         validate,
         onSubmit: values => {
-          alert(JSON.stringify(values, null, 2));
+          postInfo(values);
+          Swal.fire({
+              title: 'Success!',
+              icon: 'success',
+              confirmButtonText: 'Ok'
+          })
         },
-      });
+   });
 
+   async function postInfo(data) {
+    try {
+      const response = await fetch("https://jsonplaceholder.typicode.com/users", {
+        method: "POST", 
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+  
+      const result = await response.json();
+      console.log("Success:", result);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+   
     return(
-        <>
-          <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white h-40 py-8">
-              <img className="h-48 ml-44 shadow-md shadow-violet-900" src={CreateImg}/>
+        <div>
+          <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white h-40 py-4">
+              <Link to="/dashboard"><button className="font-bold ml-4">Back to Dashboard</button></Link>
+              <img className="h-48 ml-40 shadow-md shadow-violet-900" src={CreateImg}/>
           </div>
 
-          <div className="my-20 mx-24 p-8 bg-fuchsia-100 shadow-lg shadow-fuchsia-200">
+          <div className="my-20 mx-auto rounded-xl w-1/2 p-8 bg-fuchsia-100 shadow-lg shadow-fuchsia-200">
               <h1 className="text-3xl font-medium text-violet-500 mb-3 text-center ">User Info Form</h1>
               <form onSubmit={formik.handleSubmit} className="flex flex-col">
-                <div className="flex justify-between">
                  <input
-                    className='p-2 mr-5 my-2 border-2 border-grey-500 w-1/2'
+                    className='p-2 my-2 border-2 border-grey-500'
                     id="fullName"
                     name="fullName"
                     type="text"
@@ -75,7 +104,7 @@ const Create = () =>{
                   {(formik.touched.fullName && formik.errors.fullName) ? <div className='text-xs text-red-600'>{formik.errors.fullName}</div> : null}
                  
                   <input
-                    className='p-2 my-2 border-2 border-grey-500 w-1/2'
+                    className='p-2 my-2 border-2 border-grey-500'
                     id="userName"
                     name="userName"
                     type="text"
@@ -85,11 +114,9 @@ const Create = () =>{
                     value={formik.values.userName}
                   />
                   {(formik.touched.userName && formik.errors.userName) ? <div className='text-xs text-red-600'>{formik.errors.userName}</div> : null}
-                  </div>
 
-                  <div className="flex justify-between">
                    <input
-                    className='p-2 my-2 mr-5 border-2 border-grey-500 w-1/2'
+                    className='p-2 my-2 border-2 border-grey-500'
                     id="email"
                     name="email"
                     type="email"
@@ -101,7 +128,7 @@ const Create = () =>{
                   {(formik.touched.email && formik.errors.email) ? <div className='text-xs text-red-600'>{formik.errors.email}</div> : null}
                   
                   <input
-                    className='p-2 my-2 border-2 border-grey-500 w-1/2'
+                    className='p-2 my-2 border-2 border-grey-500'
                     id="phone"
                     name="phone"
                     type="phone"
@@ -112,8 +139,6 @@ const Create = () =>{
                    />
                   {(formik.touched.phone && formik.errors.phone) ? <div className='text-xs text-red-600'>{formik.errors.phone}</div> : null}
 
-                  
-                  </div>
                   <input
                     className='p-2 my-2 border-2 border-grey-500'
                     id="address"
@@ -142,7 +167,7 @@ const Create = () =>{
 
               </form>
           </div>
-        </>
+        </div>
     )
 }
 
