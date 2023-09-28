@@ -83,12 +83,12 @@ const Create = () =>{
    
     return(
         <div>
-          <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white h-40 py-4">
-              <Link to="/dashboard"><button className="font-bold ml-4">Back to Dashboard</button></Link>
-              <img className="h-48 ml-40 shadow-md shadow-violet-900" src={CreateImg}/>
+          <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white md:h-40 h-32 md:py-4 py-1">
+              <Link to="/dashboard"><button className="font-bold lg:m-4 sm:m-2 m-0.5">Dashboard</button></Link>
+              <img className="lg:h-40 md:h-36 sm:h-32 h-28 lg:ml-16 m-auto shadow-md shadow-violet-900" src={CreateImg}/>
           </div>
 
-          <div className="my-20 mx-auto rounded-xl w-1/2 p-8 bg-fuchsia-100 shadow-lg shadow-fuchsia-200">
+          <div className="my-20 mx-auto rounded-xl lg:w-1/2 w-2/3 p-8 bg-fuchsia-100 shadow-lg shadow-fuchsia-200">
               <h1 className="text-3xl font-medium text-violet-500 mb-3 text-center ">User Info Form</h1>
               <form onSubmit={formik.handleSubmit} className="flex flex-col">
                  <input

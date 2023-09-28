@@ -59,15 +59,15 @@ const Signup = () =>{
       });
 
     return(
-    <div className="w-2/5 h-auto bg-purple-200 shadow-md shadow-fuchsia-400 rounded-2xl">
+    <div className="lg:w-2/5 md:w-5/12 w-2/3 mx-auto mb-20 bg-purple-200 shadow-md shadow-fuchsia-400 rounded-2xl">
      <form className="flex flex-col" onSubmit={formik.handleSubmit}>
 
-        <h1 className = "font-medium text-2xl mt-5 text-center text-blue-600">New User?</h1>
-        <h2 className="font-medium text-xl text-center text-gray-500">Start your journey Now.</h2>
-        <h1 className="text-center font-medium text-2xl my-2 text-blue-500"> Sign Up</h1>
+        <h1 className = "font-medium md:text-2xl text-xl md:mt-16 mt-6 md:mb-2 mb-1 text-center text-blue-600">New User?</h1>
+        <h2 className="font-medium md:text-2xl text-xl md:mb-4 mb-2 text-center text-gray-500">Start your journey Now.</h2>
+        <h1 className="text-center font-medium md:text-2xl text-xl md:mb-4 mb-2 text-blue-500"> Sign Up</h1>
 
             <input
-              className="py-1 px-3 my-2 mx-auto w-4/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
+              className="py-1 px-3 md:my-4 my-2 mx-auto md:w-4/6 w-5/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
               id="firstName"
               name="firstName"
               type="text"
@@ -77,11 +77,11 @@ const Signup = () =>{
               value={formik.values.firstName}
            />
            {formik.touched.firstName && formik.errors.firstName ? (
-            <div className='text-xs text-red-600 font-medium mx-20'>{formik.errors.firstName}</div>
+            <div className='text-xs text-red-600 font-medium md:mx-16 sm:mx-10 mx-8'>{formik.errors.firstName}</div>
            ) : null}
         
             <input
-              className="py-1 px-3 my-2 mx-auto w-4/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
+              className="py-1 px-3 md:my-4 my-2 mx-auto md:w-4/6 w-5/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
               id="lastName"
               name="lastName"
               type="text"
@@ -91,11 +91,11 @@ const Signup = () =>{
               value={formik.values.lastName}
            />
            {formik.touched.lastName && formik.errors.lastName ? (
-             <div className='text-xs text-red-600 font-medium mx-20'>{formik.errors.lastName}</div>
+             <div className='text-xs text-red-600 font-medium md:mx-16 sm:mx-10 mx-8'>{formik.errors.lastName}</div>
            ) : null}
 
          <input
-              className="py-1 px-3 my-2 mx-auto w-4/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
+              className="py-1 px-3 md:my-4 my-2 mx-auto md:w-4/6 w-5/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
               id="email"
               name="email"
               type="email"
@@ -105,11 +105,11 @@ const Signup = () =>{
               value={formik.values.email}
          />
          {formik.touched.email && formik.errors.email ? (
-           <div className='text-xs text-red-600 mx-20 font-medium'>{formik.errors.email}</div>
+           <div className='text-xs text-red-600 md:mx-16 sm:mx-10 mx-8 font-medium'>{formik.errors.email}</div>
          ) : null}
 
          <input
-              className="py-1 px-3 my-2 mx-auto w-4/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
+              className="py-1 px-3 md:my-4 my-2 mx-auto md:w-4/6 w-5/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
               id="password"
               name="password"
               type="password"
@@ -119,7 +119,7 @@ const Signup = () =>{
               value={formik.values.password}
          />
          {formik.touched.password && formik.errors.password ? (
-           <div className='text-xs text-red-600 mx-20 font-medium'>{formik.errors.password}</div>
+           <div className='text-xs text-red-600 md:mx-16 sm:mx-10 mx-8 font-medium'>{formik.errors.password}</div>
          ) : null}
  
        <button type="submit"

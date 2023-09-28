@@ -42,16 +42,16 @@ const Login = () =>{
       });
 
    return(
-    <div className='w-2/5 h-auto bg-purple-200 shadow-md shadow-fuchsia-400 rounded-2xl'>
+    <div className='lg:w-2/5 md:w-5/12 w-2/3 mx-auto mb-20 bg-purple-200 shadow-md shadow-fuchsia-400 rounded-2xl'>
       <form className="flex flex-col" onSubmit={formik.handleSubmit}>
             
-             <h1 className="font-medium text-2xl mt-16 mb-2 text-center text-blue-600">Already a User?</h1>
-             <h1 className="text-center font-medium text-2xl mb-4 text-gray-500"> 
+             <h1 className="font-medium md:text-2xl text-xl md:mt-16 mt-6 md:mb-2 mb-1 text-center text-blue-600">Already a User?</h1>
+             <h1 className="text-center font-medium md:text-2xl text-xl md:mb-4 mb-2 text-gray-500"> 
                <span className="text-blue-500">Login</span> Your Account
              </h1>
 
             <input
-                className="py-1 px-3 my-4 mx-auto w-4/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
+                className="py-1 px-3 md:my-4 my-2 mx-auto md:w-4/6 w-5/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
                 id="email"
                  name="email"
                  type="email"
@@ -61,11 +61,11 @@ const Login = () =>{
                  value={formik.values.email}
             />
             {formik.touched.email && formik.errors.email ? (
-              <div className='text-xs text-red-600 mx-20 font-medium'>{formik.errors.email}</div>
+              <div className='text-xs text-red-600 md:mx-16 sm:mx-10 mx-8 font-medium'>{formik.errors.email}</div>
             ) : null}
 
            <input
-                className="py-1 px-3 my-4 mx-auto w-4/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
+                className="py-1 px-3 md:my-4 my-2 mx-auto md:w-4/6 w-5/6  bg-purple-200 border-b-2 border-blue-500 rounded-2xl"
                 id="password"
                 name="password"
                 type="password"
@@ -75,16 +75,16 @@ const Login = () =>{
                 value={formik.values.password}
            />
            {formik.touched.password && formik.errors.password ? (
-             <div className='text-xs text-red-600 mx-20 font-medium'>{formik.errors.password}</div>
+             <div className='text-xs text-red-600 md:mx-16 sm:mx-10 mx-8 font-medium'>{formik.errors.password}</div>
            ) : null}
 
          <button type="submit" 
-           className="bg-blue-500 text-white w-3/6 p-2 my-6 mx-auto rounded-2xl font-semibold hover:bg-blue-600"
+           className="bg-blue-500 text-white sm:w-3/6 w-4/6 p-2 my-6 mx-auto rounded-2xl font-semibold hover:bg-blue-600"
          >
             Submit
          </button>
 
-         <p className='text-xs text-center font-medium text-gray-500'>
+         <p className='text-xs text-center font-medium text-gray-500 mb-3'>
           By clicking on Login, I accept the Terms & Conditions.
         </p>
         
